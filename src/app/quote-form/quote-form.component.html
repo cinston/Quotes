@@ -5,27 +5,39 @@
 </div>
   <!-- <div class= "row"> -->
   <p>Create a new quote:</p>
+   <div class="row">
+     <form (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
 
-    <form>
       <div class="form-group">
-        <label>Quote </label>
-        <textarea name="quote" class= "form-control" row="4"></textarea>
+        <label for="quote">Quote </label>
+        <textarea class= "form-control" id="quote" row="4" [(ngModel)]="newQuote.quote" name="quote" #quote="ngModel" required></textarea>
+        <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+          <p>Come on man!! Obviously a quote is required</p>
+        </div>
 
       </div>
 
       <div class="form-group">
-        <label>author</label>
-        <input type="text" id="author" class="form-control">
+        <label for="author">Author</label>
+        <input type="text" id="author" class="form-control" [(ngModel)]="newQuote.author" name="author" #author="ngModel" required>
+        <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+          <p> Author is required</p>
 
+       <!-- Display {{newQuote.author}} -->
       </div>
+    </div>
 
       <div class="form-group">
-        <label>You</label>
-        <input type="text" id="you" class="form-control">
-
+        <label for="you">You</label>
+        <input type="text" id="you" class="form-control" [(ngModel)]="newQuote.you" name="you" #you="ngModel" required>
+        <div [hidden]="you.valid || you.pristine" class="alert alert-danger">
+          <p> Your name is required</p>
       </div>
-      <button type="submit" color='accent'>Submit</button>
+       <!-- Display {{newQuote.you}} -->
+      </div>
 
-    </form>
+      <button type="submit" class="btn btn-success btn-lg">Submit</button>
+
+  </form>
   <!-- </div> -->
 </div>
