@@ -29,7 +29,7 @@
 
       <div class="form-group">
         <label for="you">You</label>
-        <input type="text" id="you" class="form-control" [(ngModel)]="newQuote.you" name="you" #you="ngModel" required>
+        <input type="text" id="you" class="form-control" [(ngModel)]="newQuote.post" name="you" #you="ngModel" required>
         <div [hidden]="you.valid || you.pristine" class="alert alert-danger">
           <p> Your name is required</p>
       </div>
