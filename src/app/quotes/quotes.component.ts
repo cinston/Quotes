@@ -9,12 +9,30 @@ import { Quote } from '../quote';
 export class QuotesComponent implements OnInit {
  quotes = [
  new Quote (0, "Carlos", "Man's not hot", "Big Shaq"),
- new Quote (0, "Sam", "Mi skuangi philosophical", "Kasyoki")
+ new Quote (0, "DIANA", "Life is too short to die young ", "Mutheu")
  ];
 
  addNewQuote(quote){
 this.quotes.push(quote);
  }
+
+ deleteQuote(isComplete, index){
+ if (isComplete){
+ let toDelete=confirm('Are you sure u want to delete ${this.quotes[index.name]}')
+
+ if(toDelete){
+ this.quotes.splice(index, 1)
+ }
+ }
+ }
+ addVote(vote,index){
+  if(vote){
+    this.quotes[index].like += 1;
+    
+  } else {
+    this.quotes[index].dislike += 1;
+  }
+}
 
 
   constructor() { }
@@ -22,4 +40,5 @@ this.quotes.push(quote);
   ngOnInit() {
   }
 
+ 
 }

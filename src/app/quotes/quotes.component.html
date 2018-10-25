@@ -5,10 +5,12 @@
       <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
     </div>
     <div class="col-md-6">
-      <div *ngFor="let quote of quotes">
+      <div *ngFor="let quote of quotes; let i=index">
         {{quote.author}}<br>
         {{quote.quote}}<br>
         {{quote.post}}
+
+        <app-quote-detail *ngIf="quote.showQuote" (isCounter)='addVote($event, i)' [quote]='quote' (isDelete)= 'deleteQuote($event, i)'></app-quote-detail>
       </div>
     </div>
   </div>

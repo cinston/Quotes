@@ -1,14 +1,16 @@
 {{quote.author}}
 
+{{quote.quote}}
+
 {{quote.post}}
 
 <p>{{quote.quote}}</p>
 
-<button (click)='increaseLike(true)'>Lke</button>
+<button class="btn btn-success" (click)="increaseCounter(true)">Like {{quote.like}}</button>
 
-<button  (click)='increaseLike(false)'>Dislike</button>
+<button class="btn btn-success" (click)="increaseCounter(false)">Dislike {{quote.dislike}}</button>
 
-<button (click)= 'deleteQuote(true)'>Delete Quote</button>
+<button class="btn btn-danger" (click)= 'deleteQuote(true)'>Delete Quote</button>
 
 <!-- <p>
   quote-detail works!
